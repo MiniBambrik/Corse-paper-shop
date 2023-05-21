@@ -3,25 +3,25 @@
 body {
     margin:0;
     padding:0;
-    font-family:helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 h1, h2, h3, h4, h5 , h6 {
-    font-family: 'Ubuntu', sans-serif; font-weight:normal;
+    font-family: 'Montserrat', sans-serif; font-weight:normal;
 }
 
 a {
     text-decoration:none;
-    color:#5993bb;
+    color:#b359bb;
 }
 
 a:hover {
-    color:#77b6e2;
+    color:#ee8ce1;
 }
 
 a.button, input[type="submit"] {
     color:#fff;
-    background:#5993bb;
+    background:#bb59bb;
     border-radius:4px;
     padding:10px 20px;
     font-size:14px;
@@ -63,7 +63,7 @@ tbody tr.subtotal {
 }
 
 thead th, tbody tr.total {
-    background:#5993bb;
+    background:#b359bb;
     color:#fff;
     font-weight:bold;
 }
@@ -120,31 +120,71 @@ ul.errorlist {
     padding:10px 100px;
     font-size:18px;
     overflow:auto;
+    background-color: #df8edf;
+}
+
+#header-logo {
+    height: 75px;
+    float: left;
 }
 
 #subheader {
-    background:#ececec;
+    background:#cc6ead;
     color:#444;
-    padding:15px 100px;
+    padding:10px 100px;
     overflow:auto;
 }
 
-#header .logo {
-    font-family: 'Ubuntu', sans-serif;
-    float:left;
-    color:#333;
-    font-size:22px;
-    margin-right:10%;
+#subheader form {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#header-registration {
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1.4%;
+    float: right;
+    color: white;
+    font-size: 20px;
+}
+
+#user-name {
+    color: rgb(255, 0, 98);
+}
+
+#header-registration li {
+    list-style-type: none;
+}
+
+#reg-text {
+    color: rgb(248, 53, 128);
 }
 
 #subheader .cart {
-    float:right;
-    padding-top:4px;
+    float: right;
+    color: rgb(255, 0, 98);
+    margin: 18px 0;
+    display: flex;
+    align-items: center;
+}
+
+#subheader .cart .cart-icon {
+    width: 30px;
+    float: left;
+}
+
+#subheader .cart .cart-info {
+    color: rgb(255, 0, 98);
+}
+
+#subheader .cart .cart-text {
+    color: white;
 }
 
 #content {
     padding:0 100px;
     overflow:hidden;
+    background-color: #ccc;
 }
 
 #sidebar {
@@ -169,12 +209,12 @@ ul.errorlist {
 }
 
 #sidebar ul li.selected {
-    background:#5993bb;
+    background:rgb(255, 0, 98);
     border-radius:4px;
 }
 
 #sidebar ul li.selected a {
-    color:#fff;
+    color:#000000;
 }
 
 #main {
@@ -185,8 +225,9 @@ ul.errorlist {
 }
 
 .product-list .item {
-    width:25%;
+    height: 300px;
     padding:10px 20px 10px 0;
+    margin: 15px;
     float:left;
     text-align:center;
     line-height:1.2;
