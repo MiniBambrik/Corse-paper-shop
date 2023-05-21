@@ -1,0 +1,18 @@
+{% extends "shop\base.html" %}
+
+{% block title %}Log-in{% endblock %}
+{% block content %}
+    <h1>Логін</h1>
+    {% if form.errors %}
+        <p>Нік або пароль вказані з помилкою.</p><br>
+         <p>Будь ласка, спробуйте ще раз.</p>
+    {% else %}
+        <p>Логін:</p>
+    {% endif %}
+    <form action="." method="post">
+        {{ form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Log in"></p>
+        <input type="hidden" name="next" value="{% url 'shop:product_list' %}">
+    </form>
+{% endblock %}

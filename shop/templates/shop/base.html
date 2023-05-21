@@ -9,13 +9,34 @@
     <title>{% block title %}In Your Area{% endblock title %}</title>
     <link rel="icon" href="{% static 'img/favicon.jpg' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   </head>
   <body>
     <div id="header">
-      <a href="/"><img id= "header-logo"src="{% static 'img/logo.jpg' %}" alt="Тут мав бути логотип сайту"></a>
+      <a href="/"><img id= "header-logo"src="{% static 'img/iyalogo.jpg' %}" alt="Тут мав бути логотип сайту"></a>
       <a href="/" class="logo"><img>Магазин корейської косметики</a>
+      <ul id="header-registration">
+        {% if user.is_authenticated %}
+            <span>Привіт,</span>
+            <span><a id="user-name" href="{% url 'users:user_profile' user.username %}"> {{ user.username }}</a></span>
+            <li>
+                <a id="reg-text" href="{% url 'users:logout' %}">Log out</a>
+            </li>
+        {% else %}
+            <li>
+                <a id="reg-text" href="{% url 'users:login' %}">Log in</a>
+            </li>
+            <li>
+                <a id="reg-text" href="{% url 'users:register' %}">Sign up</a>
+            </li>
+        {% endif %}  
+        </ul>
     </div>
-    <div id="subheader">
+    <div id="subheader" class="kn">
+        <form method="get" action="{% url 'shop:search' %}">
+          <input  type="text" name="q" placeholder="Введіть запит...">
+        <button type="submit">Пошук</button>          
+      </form>
       <div class="cart">
         {% with total_items=cart|length %} {% if total_items > 0 %} Ваш кошик:
         <a href="{% url 'cart:cart_detail' %}"><img src="https://cdn-icons-png.flaticon.com/512/649/649931.png" width="40" height="40" >
@@ -23,12 +44,8 @@
         ₴{{ cart.get_total_price }}</a>
         {% else %} Ваш кошик порожній {% endif %} {% endwith %}
       </div>
-    </div>
-    <div class="kn">
-      <form method="get" action="{% url 'shop:search' %}">
-        <input  type="text" name="q" placeholder="Введіть запит...">
-        <button type="submit">Пошук</button>          
-      </form>
+
+
     </div>
 
     </div>    

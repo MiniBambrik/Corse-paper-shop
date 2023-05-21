@@ -1,0 +1,14 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="alert alert-warning text-center" role="alert">
+      <h4 class="alert-heading mb-4">Зареєструйтесь або зайдіть в свій акаунт</h4>
+      <p class="mb-4">Щоб продовжити, будь ласка, зайдіть в свій акаунт або зареєструйтесь</p>
+      <div class="d-flex justify-content-center">
+        <a class="btn btn-primary btn-lg mr-3" href="{% url 'users:login' %}" role="button">Увійти</a>
+        <a class="btn btn-outline-primary btn-lg" href="{% url 'users:register' %}" role="button">Зареєструватись</a>
+      </div>
+    </div>
+  </div>
+{% endblock %}

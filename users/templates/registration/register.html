@@ -1,0 +1,13 @@
+{% extends "shop/base.html" %}
+
+{% block title %}Створити акаунт{% endblock %}
+
+{% block content %}
+    <h1>Створити акаунт</h1>
+    <p>Будь ласка, зареєструйтеся:</p>
+    <form action="." method="post">
+        {{ user_form.as_p }}
+        {% csrf_token %}
+        <p><input type="submit" value="Створити акаунт"></p>
+    </form>
+{% endblock %}
