@@ -7,22 +7,44 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}In Your Area{% endblock title %}</title>
+    <link rel="icon" href="{% static 'img/favicon.jpg' %}">
     <link rel="stylesheet" href="{% static 'css/base.css' %}" />
   </head>
   <body>
     <div id="header">
-      <a href="/" class="logo">In Your Area</a>
+      <a href="/"><img id= "header-logo"src="{% static 'img/logo.jpg' %}" alt="Тут мав бути логотип сайту"></a>
+      <a href="/" class="logo"><img>Магазин корейської косметики</a>
     </div>
     <div id="subheader">
       <div class="cart">
-        {% with total_items=cart|length %} {% if total_items > 0 %} Your cart:
-        <a href="{% url 'cart:cart_detail' %}">
-          {{ total_items }} item{{ total_items|pluralize }}, ₴{{
-          cart.get_total_price }}
-        </a>
-        {% else %} Your cart is empty {% endif %} {% endwith %}
+        {% with total_items=cart|length %} {% if total_items > 0 %} Ваш кошик:
+        <a href="{% url 'cart:cart_detail' %}"><img src="https://cdn-icons-png.flaticon.com/512/649/649931.png" width="40" height="40" >
+        {{ total_items }} одн.{{ total_одиниці|pluralize }},
+        ₴{{ cart.get_total_price }}</a>
+        {% else %} Ваш кошик порожній {% endif %} {% endwith %}
       </div>
     </div>
+    <div class="kn">
+      <form method="get" action="{% url 'shop:search' %}">
+        <input  type="text" name="q" placeholder="Введіть запит...">
+        <button type="submit">Пошук</button>          
+      </form>
+    </div>
+
+    </div>    
     <div id="content">{% block content %} {% endblock content %}</div>
+    <div class="contact">
+        <div class="left-col">
+          <p>Пошта: <a href="mailto:info.inyourarea@gmail.com">info@inyourarea.com</a></p>
+          <p>Телефон: <a href="tel:+380111111111">+380111111111</a></p>
+        </div>
+        <div class="right-col">
+            <p><a href="https://goo.gl/maps/VhSPYUdA9PXxTWUh7"> 
+              <img src="https://vsememy.ru/kartinki/wp-content/uploads/2023/03/1642312904_3-papik-pro-p-geolokatsiya-klipart-3.png" width="30" height="25"> Полтавський Шлях, 6, Харків, Україна</a></p>
+            <p><a href="https://www.instagram.com/"> <img src="https://cdn-icons-png.flaticon.com/512/1936/1936319.png" width="30" height="25"></a> 
+              <a href="https://www.facebook.com/"> <img src="https://cdn-icons-png.flaticon.com/512/59/59439.png" width="30" height="25"></a> 
+              <a href="https://www.telegram.org/"> <img src="https://cdn-icons-png.flaticon.com/512/87/87413.png" width="30" height="25"></a></p>
+        </div>
+    </div>
   </body>
 </html>

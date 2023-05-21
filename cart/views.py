@@ -34,3 +34,17 @@ def cart_detail(request):
             'override': True,
         })
     return render(request, 'cart/detail.html', context={'cart': cart})
+
+def filter_by_price(request):
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    products = Product.objects.filter(price__range=(min_price, max_price))
+    return render(request, 'shop/product/list.html', {'products': products})
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        results = Product.objects.filter(name__icontains=query, available=True)
+    else:
+        results = []
+    return render(request, 'shop/search.html', {'results': results, 'query': query})

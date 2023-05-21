@@ -1,6 +1,6 @@
-{% extends 'shop/base.html' %} {% block title %} Перевірка {% endblock title %}
+{% extends 'shop/base.html' %} {% block title %} Замовити {% endblock title %}
 {% block content %}
-<h1>Перевірка</h1>
+<h1>Замовити</h1>
 <div class="order-info">
   <h3>Ваше замовлення</h3>
   <ul>
@@ -14,7 +14,7 @@
 </div>
 <form method="post" class="order-form">
   {{ form.as_p }}
-  <p><input type="submit" value="Place order" /></p>
+  <p><input type="submit" value="Оформити замовлення" /></p>
   {% csrf_token %}
 </form>
 {% endblock content %}

@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
-
+from django.db.models import Q
+from django.views.generic import ListView, DetailView
 from .models import Category, Product
 from cart.forms import CartAddProductForm
 
@@ -25,3 +26,17 @@ def product_detail(request, id, slug):
         'product': product,
         'cart_product_form': cart_product_form,
     })
+
+def filter_by_price(request):
+    min_price = request.GET.get('min_price')
+    max_price = request.GET.get('max_price')
+    products = Product.objects.filter(price__range=(min_price, max_price))
+    return render(request, 'shop/product/list.html', {'products': products})
+
+def search(request):
+    query = request.GET.get('q')
+    if query:
+        results = Product.objects.filter(name__icontains=query, available=True)
+    else:
+        results = []
+    return render(request, 'shop/search.html', {'results': results, 'query': query})

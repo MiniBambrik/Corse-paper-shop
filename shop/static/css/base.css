@@ -1,4 +1,4 @@
-@import url(//fonts.googleapis.com/css?family=Ubuntu);
+@import url(//fonts.googleapis.com/css2?family=Montserrat);
 
 body {
     margin:0;
@@ -12,11 +12,11 @@ h1, h2, h3, h4, h5 , h6 {
 
 a {
     text-decoration:none;
-    color:#b359bb;
+    color:#c405aa;
 }
 
 a:hover {
-    color:#ee8ce1;
+    color:#58014d;
 }
 
 a.button, input[type="submit"] {
@@ -30,7 +30,7 @@ a.button, input[type="submit"] {
 
 a.button.light {
     color:#666;
-    background:#ededed;
+    background:#efefef;
 }
 
 .text-left {
@@ -59,11 +59,11 @@ tbody tr:nth-child(odd) {
 }
 
 tbody tr.subtotal {
-    background:#ccc;
+    background:#efefef;
 }
 
 thead th, tbody tr.total {
-    background:#b359bb;
+    background:#bf6dc7;
     color:#fff;
     font-weight:bold;
 }
@@ -118,9 +118,9 @@ ul.errorlist {
 
 #header {
     padding:10px 100px;
-    font-size:18px;
+    font-size:30px;
     overflow:auto;
-    background-color: #df8edf;
+    background-color: #e298e2;
 }
 
 #header-logo {
@@ -129,9 +129,8 @@ ul.errorlist {
 }
 
 #subheader {
-    background:#cc6ead;
+    background:#e68dc8;
     color:#444;
-    padding:10px 100px;
     overflow:auto;
 }
 
@@ -149,7 +148,7 @@ ul.errorlist {
 }
 
 #user-name {
-    color: rgb(255, 0, 98);
+    color: rgb(255, 55, 131);
 }
 
 #header-registration li {
@@ -157,12 +156,12 @@ ul.errorlist {
 }
 
 #reg-text {
-    color: rgb(248, 53, 128);
+    color: rgb(255, 55, 131);
 }
 
 #subheader .cart {
     float: right;
-    color: rgb(255, 0, 98);
+    color: rgb(0, 0, 0);
     margin: 18px 0;
     display: flex;
     align-items: center;
@@ -174,7 +173,7 @@ ul.errorlist {
 }
 
 #subheader .cart .cart-info {
-    color: rgb(255, 0, 98);
+    color: rgb(255, 55, 131);
 }
 
 #subheader .cart .cart-text {
@@ -184,7 +183,7 @@ ul.errorlist {
 #content {
     padding:0 100px;
     overflow:hidden;
-    background-color: #ccc;
+    background-color: #dacece;
 }
 
 #sidebar {
@@ -209,7 +208,7 @@ ul.errorlist {
 }
 
 #sidebar ul li.selected {
-    background:rgb(255, 0, 98);
+    background:rgb(255, 55, 131);
     border-radius:4px;
 }
 
@@ -225,7 +224,8 @@ ul.errorlist {
 }
 
 .product-list .item {
-    height: 300px;
+    width: 295px;
+    height: 350px;
     padding:10px 20px 10px 0;
     margin: 15px;
     float:left;
@@ -276,7 +276,7 @@ ul.errorlist {
 }
 
 .order-info h3 {
-    color:#5993bb;
+    color:#000000;
 }
 
 .order-info ul li {
@@ -356,6 +356,58 @@ ul.errorlist {
     width:120px;
 }
 
+#search-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+#search-line input[type="text"] {
+    border: none;
+    border-bottom: 2px solid #dacece;
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    transition: border-bottom-color 0.3s ease-in-out;
+}
+
+#search-line input[type="text"]:focus {
+    outline: none;
+    border-bottom-color: rgb(255, 0, 98);
+}
+
+#search-line button[type="submit"] {
+    background-color: white;
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+#search-line button[type="submit"]:hover {
+    background-color: rgb(255, 0, 98);
+}
+
+.product-search {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.search-item {
+    width: 25%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.search-item img {
+    max-width: 100%;
+    height: auto;
+}
+
 /* braintree hosted fields */
 form div.field {
     font-size:13px;
@@ -368,4 +420,99 @@ form div.field {
     background:#efefef;
     color:#666;
     border-radius:4px;
+}
+
+.pagination {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    clear: both;
+}
+
+.pagination a,
+.pagination span {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #efefef;
+    margin: 0 2px;
+    text-decoration: none;
+    color: #333;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.pagination .current-page {
+    font-weight: bold;
+    color: #efefef;
+    background-color: #333;
+    border-color: #333;
+}
+
+.pagination .disabled {
+    color: #efefef;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+
+.btn {
+    font-weight: bold;
+    text-decoration: none;
+    margin-right: 10px;
+}
+
+
+.btn-secondary {
+    background-color: #877788;
+    border-color: #5c4252;
+}
+
+.btn-secondary:hover {
+    background-color: #604e61;
+    border-color: #412b38;;
+}
+
+
+.product-detail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+}
+
+.product-images {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+    grid-gap: 20px;
+}
+
+.main-image {
+    grid-row: 1 / span 2;
+    margin-top: 10%;
+}
+
+.additional-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    grid-template-rows: repeat(3, 1fr);
+    grid-gap: 20px;
+}
+
+.image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    display: flex;
+    flex-direction: column;
 }

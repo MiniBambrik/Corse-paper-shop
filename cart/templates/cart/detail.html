@@ -1,13 +1,19 @@
-{% extends 'shop/base.html' %} {% load static %} {% block title %} Your shopping
-cart {% endblock title %} {% block content %}
+{% extends 'shop/base.html' %} 
+{% load static %} 
+
+{% block title %} 
+Ваш кошик
+{% endblock title %} 
+
+{% block content %}
 <h1>Ваш кошик:</h1>
 <table class="cart">
   <thead>
-    <th>Картинка</th>
+    <th>Фото</th>
     <th>Продукт</th>
     <th>Кількість</th>
     <th>Видалити</th>
-    <th>Ціна за 1 шт.</th>
+    <th>Ціна за 1 од.</th>
     <th>Вартість</th>
   </thead>
   <tbody>
@@ -49,6 +55,6 @@ cart {% endblock title %} {% block content %}
 <p class="text-right">
   <a href="{% url 'shop:product_list' %}" class="button light">Продовжити покупки</a
   >
-  <a href="{% url 'orders:order_create' %}" class="button">Перевірка</a>
+  <a href="{% url 'orders:order_create' %}" class="button">Замовити</a>
 </p>
 {% endblock content %}
