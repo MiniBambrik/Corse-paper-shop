@@ -72,25 +72,4 @@
 
  </div>
 
-    <div id="main" class="pagination">
-        {% if products.has_previous %}
-          <a href="?page={{ products.previous_page_number }}" class="page-link">&laquo;</a>
-        {% else %}
-          <span class="disabled page-link">&laquo;</span>
-        {% endif %}
-      
-        {% for i in products.paginator.page_range %}
-          {% if products.number == i %}
-            <span class="current-page page-link">{{ i }}</span>
-          {% elif i > products.number|add:'-3' and i < products.number|add:'3' %}
-            <a href="?page={{ i }}" class="page-link">{{ i }}</a>
-          {% endif %}
-        {% endfor %}
-      
-        {% if products.has_next %}
-          <a href="?page={{ products.next_page_number }}" class="page-link">&raquo;</a>
-        {% else %}
-          <span class="disabled page-link">&raquo;</span>
-        {% endif %}
-      </div> 
 {% endblock content %}

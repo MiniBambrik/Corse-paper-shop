@@ -39,7 +39,11 @@ def product_detail(request, id, slug):
 
 def filter_by_price(request):
     min_price = request.GET.get('min_price')
+    if not min_price:
+        min_price = 0
     max_price = request.GET.get('max_price')
+    if not max_price:
+        max_price = 10000000
     products = Product.objects.filter(price__range=(min_price, max_price))
     return render(request, 'shop/product/list.html', {'products': products})
 

@@ -4,23 +4,37 @@
 <h1>Пошук</h1>
 <p>Результати пошуку "{{ query }}":</p>
 {% if results %}
-    <ul>
-        <div class="product-search">
-            {% for product in results %}
-                <div class="search-item">
-                    <a href="{{ product.get_absolute_url }}">
-                        <img src="{% if product.image %} 
-                        {{ product.image.url }}
-                        {% else %}
-                        {% static 'img/no_image.png' %}    
-                        {% endif %}" alt="">
-                        </a>
-                    <a href="{{ product.get_absolute_url}}">{{ product.name }}</a><br>
-                        ₴ {{ product.price }}
-                </div>
-            {% endfor %}
-        <div> 
-    </ul>
+<div class="container">
+      <div class="col-sm-12">
+       <div class="row">
+        {% for product in results %}
+         <div class="col-md-3 mb-3">
+           <div class="card h-100">
+            <a href="{{ product.get_absolute_url }}">
+                <img class="card-img-top" src="{% if product.image %}
+                    {{ product.image.url }}
+                {% else %}
+                    {% static 'img/no_image.png' %}
+                {% endif %}" alt="">
+            </a>
+             <div class="card-body">
+               <h4 class="card-title">
+                 <a href="{{ product.get_absolute_url }}">{{ product.title }}</a>
+               </h4>
+               <h5>₴{{ product.price }}</h5>
+               <p class="card-text">{{ product.name }}</p>
+             </div>
+             <div class="card-footer">
+               <small class="text-muted">{{ product.category }}</small>
+             </div>
+           </div>
+         </div>
+         {% endfor %}
+       </div>
+     </div>
+   </div>
+ </div>
+     
     {% else %}
         <p>Такого товару немає</p>
     {% endif %}
