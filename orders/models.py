@@ -1,6 +1,6 @@
 from django.db import models
 from shop.models import Product
-
+from django.conf import settings
 # Create your models here.
 
 
@@ -15,6 +15,7 @@ class Order(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     paid = models.BooleanField(default=False)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     class Meta:
         ordering = ['-created']
@@ -39,6 +40,6 @@ class OrderItem(models.Model):
     def __str__(self):
         return str(self.id)
 
-    def get_cost():
+    def get_cost(self):
         return self.price * self.quantity
     

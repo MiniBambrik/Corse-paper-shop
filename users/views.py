@@ -1,8 +1,10 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm
 from orders.models import Order
+from users.forms import UserProfileEditForm
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -41,3 +43,17 @@ def user_profile(request, username):
         'orders': user_orders,
     }
     return render(request, 'profile.html', context)
+
+def edit_profile(request):
+    if request.method == 'POST':
+        form = UserProfileEditForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('users:user_profile', {'user': request.user})  # Перенаправлення на сторінку профілю після збереження
+    else:
+        form = UserProfileEditForm(instance=request.user)
+
+    context = {
+        'form': form
+    }
+    return render(request, 'edit_profile.html', context)

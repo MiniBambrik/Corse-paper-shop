@@ -2,11 +2,24 @@
 
 {% block content %}
     <h1>Сторінка профілю {{ user.username }}</h1>
-    <ul>
-        <li>Ім'я: {{ user.first_name }}</li>
-        <li>Призвіще: {{ user.last_name }}</li>
-        <li>Email: {{ user.email }}</li>
-    </ul>
+    <div class="user-info">
+        <div class="mb-3">
+            <span class="info-label">First Name:</span>
+            <span class="info-value">{{ user.first_name }}</span>
+        </div>
+        <div class="mb-3">
+            <span class="info-label">Last Name:</span>
+            <span class="info-value">{{ user.last_name }}</span>
+        </div>
+        <div class="mb-3">
+            <span class="info-label">Email:</span>
+            <span class="info-value">{{ user.email }}</span>
+        </div>
+        <div class="mb-3">
+            <span class="info-label">Address:</span>
+            <span class="info-value">{{ user.address }}</span>
+        </div>
+    </div>
     {% if orders %}
     <ul>
         {% for order in orders %}
