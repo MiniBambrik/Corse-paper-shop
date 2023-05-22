@@ -1,11 +1,6 @@
-{% extends 'shop/base.html' %} 
-{% load static %} 
-
-{% block title %} 
-Ваш кошик
-{% endblock title %} 
-
-{% block content %}
+{% extends 'shop/base.html' %} {% load static %} {% block title %} 
+Ваш кошик 
+{%endblock title %} {% block content %}
 <h1>Ваш кошик:</h1>
 <table class="cart">
   <thead>
@@ -21,7 +16,8 @@
     <tr>
       <td>
         <a href="{{ product.get_absolute_url }}">
-          <img src="{% if product.image %}{{ product.image.url }}
+          <img
+            src="{% if product.image %}{{ product.image.url }}
           {% else %}{% static 'img/no_image.png' %}{% endif %}"
           />
         </a>
@@ -29,8 +25,8 @@
       <td>{{ product.name }}</td>
       <td>
         <form action="{% url 'cart:cart_add' product.id %}" method="post">
-          {{ item.update_quantity_form.quantity }} {{
-          item.update_quantity_form.override }}
+          {{ item.update_quantity_form.quantity }} 
+          {{ item.update_quantity_form.override }}
           <input type="submit" value="Update" />
           {% csrf_token %}
         </form>
@@ -53,8 +49,11 @@
   </tbody>
 </table>
 <p class="text-right">
-  <a href="{% url 'shop:product_list' %}" class="button light">Продовжити покупки</a
+  <a href="{% url 'shop:product_list' %}" class="button light"
+    >Продовжити покупки</a
   >
-  <a href="{% url 'orders:order_create' %}" class="button">Оформити замовлення</a>
+  <a href="{% url 'orders:order_create' %}" class="button"
+    >Оформити замовлення</a
+  >
 </p>
 {% endblock content %}

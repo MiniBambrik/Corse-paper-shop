@@ -10,12 +10,23 @@
 {% endblock title %}
 
 {% block content %}
+
  <div class="container">
     <div id="sidebar">
+        <form action="{% url 'shop:filter_by_price' %}" method="get">
+        <label for="min_price">Від:</label>
+        <input type="number" id="min_price" name="min_price" value="{{ request.GET.min_price }}">
+        <br>    
+        <label for="max_price">До:</label>
+        <input type="number" id="max_price" name="max_price" value="{{ request.GET.max_price }}">
+        <br>  
+        <button id="filter" class="btn btn-light rounded-pill px-3" type="submit">Фільтр</button>
+        </form>
+        <br>
         <h3>Категорії</h3>
         <ul id="categories">
             <li {% if not category %}class="selected"{% endif %}>
-                <a href="{% url 'shop:product_list' %}">All</a>
+                <a href="{% url 'shop:product_list' %}">Усі товари</a>
             </li>
             {% for c in categories %}
                 <li {% if category.slug == c.slug %}class="selected"{% endif %}>
